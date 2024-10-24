@@ -53,7 +53,7 @@ namespace SIS4MIN_W.Views
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            NewUModal modalUsuario = new NewUModal(0);
+            NewUModal modalUsuario = new NewUModal(0,myid);
             modalUsuario.Owner = Window.GetWindow(this);
             modalUsuario.ShowDialog();
             if (modalUsuario.DialogResult == true)
@@ -68,7 +68,7 @@ namespace SIS4MIN_W.Views
         {
             if (dgvUsuarios.SelectedItem != null && dgvUsuarios.Items.Count > 0)
             {
-                NewUModal modalUsuario = new NewUModal(id);
+                NewUModal modalUsuario = new NewUModal(id,myid);
                 modalUsuario.Owner = Window.GetWindow(this);
                 modalUsuario.ShowDialog();
 

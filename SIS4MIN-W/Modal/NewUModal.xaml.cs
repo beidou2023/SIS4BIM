@@ -21,14 +21,15 @@ namespace SIS4MIN_W.Modal
     {
         private MessageP customMessageBox;
         Usuario t;
-        byte id;
+        byte id,myid;
         string ci, nombres, primerApellido, segundoApellido, rol;
         char sexo;
         UsuarioImplementacion usuarioImpl;
-        public NewUModal(byte id)
+        public NewUModal(byte id,byte myid)
         {
             InitializeComponent();
             this.id = id;
+            this.myid = myid;
             if (this.id != 0)
             {
                 ModUser();
@@ -157,6 +158,7 @@ namespace SIS4MIN_W.Modal
             }
             else
             {
+
                 if (this.id == 0)
                 {
                     try
@@ -276,6 +278,10 @@ namespace SIS4MIN_W.Modal
                     rbCajero.IsChecked = true;
                 else
                     rbAdministrador.IsChecked = true;
+                if (myid == t.Id) {
+                    rbCajero.IsEnabled = false;
+                    rbAdministrador.IsEnabled = false;
+                }
             }
             catch (Exception ex)
             {
