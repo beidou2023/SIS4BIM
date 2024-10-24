@@ -40,16 +40,20 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal"
-                                Height="35"
+                                Height="auto"
                                  Grid.Row="0"
+                                 VerticalAlignment="Bottom"
                                 Margin="30,10,0,0" >
                             <TextBlock Text="ADMINISTRADOR"
+                                       x:Name="txtAutor"
+                                       TextWrapping="Wrap"
                                    Foreground="{StaticResource titleColor2}"
                                    FontSize="20"
+                                   
                                    FontFamily="Montserrat"
                                    FontWeight="Medium"/>
                         </StackPanel>
-                        <StackPanel Grid.Row="1">
+                        <StackPanel Grid.Row="1" Margin=" 0 20 0 0">
                             <RadioButton x:Name="btnInit" Style="{StaticResource menuButton}"
                                  GroupName="Views" Tag="Vista1" Checked="RadioButton_Checked" >
                                 <StackPanel Orientation="Horizontal">

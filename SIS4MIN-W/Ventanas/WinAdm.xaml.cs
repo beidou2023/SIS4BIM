@@ -28,6 +28,7 @@ namespace SIS4MIN_W.Ventanas
         {
             InitializeComponent();
             this.t = t;
+            txtAutor.Text = $"ADMINISTRADOR\n({t.NombreUsuario})";
             btnInit.IsChecked = true;
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
