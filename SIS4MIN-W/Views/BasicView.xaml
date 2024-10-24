@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SIS4MIN_W.Views"
-                          mc:Ignorable="d" 
+             mc:Ignorable="d" 
              d:DesignHeight="430" d:DesignWidth="600" Background="Transparent" Loaded="UserControl_Loaded" 
              Padding="20 0 20 0">
     <Grid>

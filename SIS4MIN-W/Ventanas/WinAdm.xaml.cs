@@ -57,16 +57,16 @@ namespace SIS4MIN_W.Ventanas
                     ContentArea.Content = new BasicView(t.Id);
                     break;
                 case "Vista2":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("PROVEEDORES");
                     break;
                 case "Vista3":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("CATEGORIAS");
                     break;
                 case "Vista4":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("PRODUCTOS");
                     break;
                 case "Vista5":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("REPORTES");
                     break;
                 case "Vista6":
                     ContentArea.Content = new ChangePassword(t);

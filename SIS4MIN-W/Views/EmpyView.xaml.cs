@@ -20,9 +20,12 @@ namespace SIS4MIN_W.Views
     /// </summary>
     public partial class EmpyView : UserControl
     {
-        public EmpyView()
+        private string title;
+        public EmpyView(string title)
         {
             InitializeComponent();
+            this.title = title;
+            txtTitle.Text = this.title;
         }
     }
 }

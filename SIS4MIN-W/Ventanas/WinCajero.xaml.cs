@@ -53,13 +53,13 @@ namespace SIS4MIN_W.Ventanas
             switch (vista)
             {
                 case "Vista1":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("VENTAS");
                     break;
                 case "Vista2":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("CLIENTES");
                     break;
                 case "Vista3":
-                    ContentArea.Content = new EmpyView();
+                    ContentArea.Content = new EmpyView("REPORTES");
                     break;
                 case "Vista4":
                     ContentArea.Content = new ChangePassword(t);
