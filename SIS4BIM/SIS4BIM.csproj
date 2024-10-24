@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA69A51F-E815-4078-B197-8BF8D3274CA0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIS4BIM</RootNamespace>
+    <AssemblyName>SIS4BIM</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementacion\BaseImplementacion.cs" />
+    <Compile Include="Implementacion\CategoriaImplementacion.cs" />
+    <Compile Include="Implementacion\ClienteImplementacion.cs" />
+    <Compile Include="Implementacion\DepartamentoImplementacion.cs" />
+    <Compile Include="Implementacion\DetalleImplementacion.cs" />
+    <Compile Include="Implementacion\EmpleadoImplementacion.cs" />
+    <Compile Include="Implementacion\ProductoImplementacion.cs" />
+    <Compile Include="Implementacion\ProveedorImplementacion.cs" />
+    <Compile Include="Implementacion\UsuarioImplementacion.cs" />
+    <Compile Include="Implementacion\VentaImplementacion.cs" />
+    <Compile Include="Interface\IBase.cs" />
+    <Compile Include="Interface\ICategoria.cs" />
+    <Compile Include="Interface\ICliente.cs" />
+    <Compile Include="Interface\IDepartamento.cs" />
+    <Compile Include="Interface\IDetalle.cs" />
+    <Compile Include="Interface\IEmpleado.cs" />
+    <Compile Include="Interface\IProducto.cs" />
+    <Compile Include="Interface\IProveedor.cs" />
+    <Compile Include="Interface\IUsuario.cs" />
+    <Compile Include="Interface\IVenta.cs" />
+    <Compile Include="Modelo\BaseModelo.cs" />
+    <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Cliente.cs" />
+    <Compile Include="Modelo\Departamento.cs" />
+    <Compile Include="Modelo\Detalle.cs" />
+    <Compile Include="Modelo\Empleado.cs" />
+    <Compile Include="Modelo\Producto.cs" />
+    <Compile Include="Modelo\Proveedor.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Modelo\Venta.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS4BIM", "SIS4BIM\SIS4BIM.csproj", "{FA69A51F-E815-4078-B197-8BF8D3274CA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS4MIN-W", "SIS4MIN-W\SIS4MIN-W.csproj", "{5FAE3AC8-3162-4D0D-80F1-FC4110EDB115}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA69A51F-E815-4078-B197-8BF8D3274CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA69A51F-E815-4078-B197-8BF8D3274CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA69A51F-E815-4078-B197-8BF8D3274CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA69A51F-E815-4078-B197-8BF8D3274CA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FAE3AC8-3162-4D0D-80F1-FC4110EDB115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FAE3AC8-3162-4D0D-80F1-FC4110EDB115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FAE3AC8-3162-4D0D-80F1-FC4110EDB115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FAE3AC8-3162-4D0D-80F1-FC4110EDB115}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3598C04D-2E80-47B8-8BB8-34266AF4F738}
+	EndGlobalSection
+EndGlobal

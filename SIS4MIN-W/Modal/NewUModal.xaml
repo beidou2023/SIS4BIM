@@ -1,0 +1,84 @@
+﻿<Window x:Class="SIS4MIN_W.Modal.NewUModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIS4MIN_W.Modal"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        FontFamily="Monserrat"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Height="540" Width="960"
+        Background="#99000000">
+
+    <Border Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" 
+            Background="White" CornerRadius="10" Padding="20">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="43*"/>
+                <RowDefinition Height="267*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.RowSpan="2">
+                <Button x:Name="btnClose" HorizontalAlignment="Right"
+                       
+                        Width="20"
+                        Height="20"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}" Click="btnClose_Click"
+                               >
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+                <TextBlock Text="Datos del Usuario" FontSize="16" FontWeight="Bold" Margin="0,0,0,15" HorizontalAlignment="Center"/>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock FontWeight="Bold" Text="CI:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <TextBox x:Name="txbCI" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="0,0,0,10"/>
+
+                    <TextBlock FontWeight="Bold" Text="Nombres:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <TextBox x:Name="txbNombres" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="0,0,0,10"/>
+
+                    <TextBlock FontWeight="Bold" Text="Primer Apellido:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <TextBox x:Name="txbPrimerApellido" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="0,0,0,10" TextChanged="txbPrimerApellido_TextChanged_1"/>
+
+                    <TextBlock FontWeight="Bold" Text="Segundo Apellido:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <TextBox x:Name="txbSegundoApellido" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="0,0,0,10" IsEnabled="False"/>
+
+                    <TextBlock FontWeight="Bold" Text="Fecha de Nacimiento:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <DatePicker x:Name="dtpFechaNacimiento" HorizontalAlignment="Left" Width="150" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"/>
+
+                    <TextBlock FontWeight="Bold" Text="Sexo:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,10">
+                        <RadioButton Content="Masculino" x:Name="rbMasculino" GroupName="Sexo" Margin="0,0,10,0"/>
+                        <RadioButton Content="Femenino" x:Name="rbFemenino" GroupName="Sexo"/>
+                    </StackPanel>
+
+                    <TextBlock FontWeight="Bold" Text="Rol:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                    <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,10">
+                        <RadioButton Content="Cajero" x:Name="rbCajero" GroupName="Rol" Margin="0,0,10,0"/>
+                        <RadioButton Content="Administrador" x:Name="rbAdministrador" GroupName="Rol"/>
+                    </StackPanel>
+                    
+                </Grid>
+                
+                <Button x:Name="btnGuardar" Width="200" Content="Guardar"  Style="{StaticResource LoginButtonStyle}" Margin="0 10 0 0" Click="btnGuardar_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
