@@ -100,7 +100,7 @@
                     <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Width="auto">
                         <fa:IconImage Icon="User" Foreground="White" Margin="0 0 10 0" Height="auto"/>
                         <TextBox x:Name="txtUser"
-                                 Text="admin"
+                                 Text="admin1"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
@@ -126,7 +126,8 @@
                         <fa:IconImage Icon="Key" Foreground="White" Margin="0 0 10 0" Height="auto"/>
                         <PasswordBox x:Name="txtPass"
                              FontSize="13"
-                                     Password="1"
+                             
+                             Password="1"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
                              Foreground="White"
@@ -137,7 +138,7 @@
                              Width="180"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="20,0,0,0" Background="Transparent">
+                             Padding="20,0,0,0" Background="Transparent" KeyDown="txtPass_KeyDown">
                             
                         </PasswordBox>
                     </StackPanel>

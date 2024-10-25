@@ -21,11 +21,11 @@ namespace SIS4MIN_W.Modal
     {
         private MessageP customMessageBox;
         Usuario t;
-        byte id,myid;
+        byte id, myid;
         string ci, nombres, primerApellido, segundoApellido, rol;
         char sexo;
         UsuarioImplementacion usuarioImpl;
-        public NewUModal(byte id,byte myid)
+        public NewUModal(byte id, byte myid)
         {
             InitializeComponent();
             this.id = id;
@@ -90,6 +90,14 @@ namespace SIS4MIN_W.Modal
                 customMessageBox.ShowDialog();
                 txbCI.Focus();
             }
+            else if (!ci.All(char.IsDigit)) {
+                //MessageBox.Show("Debe ingresar el CI.");
+                customMessageBox = new MessageP("El C.I. solo debe contener digitos", "Mensaje");
+                customMessageBox.Owner = Window.GetWindow(this);
+                customMessageBox.ShowDialog();
+                txbCI.SelectAll();
+                txbCI.Focus();
+            }
             else if (string.IsNullOrWhiteSpace(nombres))
             {
                 //MessageBox.Show("Debe ingresar los nombres.");
@@ -134,10 +142,11 @@ namespace SIS4MIN_W.Modal
                 txbSegundoApellido.Focus();
             }
 
-            else if (!fechaNacimiento.HasValue || fechaNacimiento.Value > DateTime.Today)
+            //else if (!fechaNacimiento.HasValue || fechaNacimiento.Value > DateTime.Today)
+            else if (!fechaNacimiento.HasValue || !mayorEdad(fechaNacimiento.Value))
             {
                 //MessageBox.Show("Debe ingresar una fecha de nacimiento válida.");
-                customMessageBox = new MessageP("Debe ingresar una fecha de nacimiento válida.", "Mensaje");
+                customMessageBox = new MessageP("Menor de edad trabajando?", "Mensaje");
                 customMessageBox.Owner = Window.GetWindow(this);
                 customMessageBox.ShowDialog();
                 dtpFechaNacimiento.Focus();
@@ -164,8 +173,8 @@ namespace SIS4MIN_W.Modal
                     try
                     {
                         usuarioImpl = new UsuarioImplementacion();
-                        string username = usuarioImpl.GenerarUsuario(nombres,primerApellido);
-                        string password = usuarioImpl.GenerarContrasena(nombres,primerApellido);
+                        string username = usuarioImpl.GenerarUsuario(nombres, primerApellido);
+                        string password = usuarioImpl.GenerarContrasena(nombres, primerApellido);
                         t = new Usuario(
                             ci,
                             nombres,
@@ -177,13 +186,13 @@ namespace SIS4MIN_W.Modal
                             username,
                             usuarioImpl.HashPassword1(password)
                         );
-                        if (usuarioImpl.Insert(t) > 0){
+                        if (usuarioImpl.Insert(t) > 0) {
                             //MessageBox.Show($"Registro con Exito\nRecuerde su Usuario: {username}\nContraseña: {password}");
                             customMessageBox = new MessageP($"Registro con Exito\nRecuerde su Usuario: {username}\nContraseña: {password}", "Mensaje");
                             customMessageBox.Owner = Window.GetWindow(this);
                             customMessageBox.ShowDialog();
                         }
-                        else{
+                        else {
                             //MessageBox.Show("No se insertaron registros");
                             customMessageBox = new MessageP("No se insertaron registros", "Mensaje");
                             customMessageBox.Owner = Window.GetWindow(this);
@@ -202,7 +211,7 @@ namespace SIS4MIN_W.Modal
                 {
                     try
                     {
-                        if (t.Ci == ci.Trim() && t.Nombres == nombres.ToUpper() && t.PrimerApellido == primerApellido.ToUpper() && t.SegundoApellido == segundoApellido.ToUpper() && t.FechaNacimiento == fechaNacimiento.Value && t.Sexo == sexo && t.Rol == rol){
+                        if (t.Ci == ci.Trim() && t.Nombres == nombres.ToUpper() && t.PrimerApellido == primerApellido.ToUpper() && t.SegundoApellido == segundoApellido.ToUpper() && t.FechaNacimiento == fechaNacimiento.Value && t.Sexo == sexo && t.Rol == rol) {
                             //MessageBox.Show("No se actualizo nada");
                             customMessageBox = new MessageP("No se actualizo nada", "Mensaje");
                             customMessageBox.Owner = Window.GetWindow(this);
@@ -217,13 +226,13 @@ namespace SIS4MIN_W.Modal
                             t.FechaNacimiento = fechaNacimiento.Value;
                             t.Sexo = sexo;
                             t.Rol = rol;
-                            if (usuarioImpl.Update(t) > 0){
+                            if (usuarioImpl.Update(t) > 0) {
                                 //MessageBox.Show("Registro Actualizado con Exito");
                                 customMessageBox = new MessageP("Registro Actualizado con Exito", "Mensaje");
                                 customMessageBox.Owner = Window.GetWindow(this);
                                 customMessageBox.ShowDialog();
                             }
-                            else{
+                            else {
                                 //MessageBox.Show("No se insertaron registros");
                                 customMessageBox = new MessageP("No se insertaron registros", "Mensaje");
                                 customMessageBox.Owner = Window.GetWindow(this);
@@ -290,6 +299,15 @@ namespace SIS4MIN_W.Modal
                 customMessageBox.Owner = Window.GetWindow(this);
                 customMessageBox.ShowDialog();
             }
+        }
+
+        private bool mayorEdad(DateTime picked){
+            DateTime fechaactual = DateTime.Today;
+            int edad = fechaactual.Year - picked.Year;
+            if (fechaactual < picked.AddYears(edad)) edad--;
+            if (edad >= 18)
+                return true;
+            return false;
         }
     }
 }

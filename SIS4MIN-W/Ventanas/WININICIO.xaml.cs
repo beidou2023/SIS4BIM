@@ -96,5 +96,13 @@ namespace SIS4MIN_W.Windows
                 this.Close();
             }
         }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) 
+            {
+                btnLogin_Click(this, new RoutedEventArgs());
+            }
+        }
     }
 }
