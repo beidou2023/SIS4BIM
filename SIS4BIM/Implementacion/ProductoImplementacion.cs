@@ -5,8 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SIS4BIM.Implementacion
 {
@@ -132,6 +135,32 @@ namespace SIS4BIM.Implementacion
                 throw ex;
             }
             return n;
+        }
+
+        public DataTable SelectFiltro(DateTime desde, DateTime hasta) {
+            this.query = @" SELECT nombre AS 'Producto',precioBaseVenta AS 'Precio unidad', saldo AS 'Saldo', fechaRegistro AS 'Fecha de Registro'
+                            FROM producto WHERE fechaRegistro BETWEEN @desde AND @hasta AND estado=1 ORDER BY 4;";
+            MySqlCommand command = CreateBasicCommand(this.query);
+            command.Parameters.AddWithValue("@desde", desde);
+            command.Parameters.AddWithValue("@hasta", hasta);
+            return ExecuteDataTableCommand(command);
+        }
+        public DataTable SelectFiltroCategoria(string querry) {
+            this.query = @" SELECT p.nombre AS 'Producto',p.precioBaseVenta AS 'Precio unidad', p.saldo AS 'Saldo', 
+                            p.fechaRegistro AS 'Fecha de Registro'
+                            FROM producto p JOIN categoria c ON p.idCategoria=c.id WHERE  c.nombre=@querry;";
+            MySqlCommand command = CreateBasicCommand(this.query);
+            command.Parameters.AddWithValue("@querry", querry);
+            return ExecuteDataTableCommand(command);
+        }
+        public DataTable SelectFiltroDepartamento(string querry) {
+            this.query = @" SELECT p.nombre AS 'Producto',p.precioBaseVenta AS 'Precio unidad', 
+                            p.saldo AS 'Saldo', p.fechaRegistro AS 'Fecha de Registro'
+                            FROM producto p JOIN proveedor c ON p.idProveedor=c.id JOIN departamento d ON c.idDepartamento=d.id 
+                            WHERE  d.nombre=@querry;";
+            MySqlCommand command = CreateBasicCommand(this.query);
+            command.Parameters.AddWithValue("@querry", querry);
+            return ExecuteDataTableCommand(command);
         }
     }
 }

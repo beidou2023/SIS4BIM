@@ -112,6 +112,12 @@
     <Compile Include="Views\EmpyView.xaml.cs">
       <DependentUpon>EmpyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reporte1View.xaml.cs">
+      <DependentUpon>Reporte1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reporte2View.xaml.cs">
+      <DependentUpon>Reporte2View.xaml</DependentUpon>
+    </Compile>
     <Page Include="Alerts\MessageP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +163,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EmpyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reporte1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reporte2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
